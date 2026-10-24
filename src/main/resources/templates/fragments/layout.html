@@ -4,17 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Dynamically inserts the exact title element passed from index.html -->
     <th:block th:replace="${title}" />
-
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 
-    <!-- Unified Header Navigation matching your recipe subdomain layout -->
-    <header th:fragment="header" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+    <header>
         <nav>
             <a class="nav-brand" th:href="@{/}">Braindribbler</a>
 
@@ -22,14 +18,10 @@
                 <div class="dropdown nav-item">
                     <span>Platforms ▼</span>
                     <div class="dropdown-content">
-                        <a href="https://braindribbler.com" target="_blank">Games Portal</a>
-                        <a href="https://braindribbler.com" target="_blank">Recipes Portal</a>
-                        <a href="https://braindribbler.com" target="_blank">Applied Jobs Log</a>
+                        <a th:each="site : ${sites}" th:href="${site.url}" th:text="${site.name + ' Portal'}"
+                            target="_blank">Dynamic Site Link</a>
                     </div>
                 </div>
-                <a class="nav-item" href="#">Standard Link</a>
-                <a class="nav-item" href="#">Sign In</a>
-                <a class="nav-item" href="#">Sign Out</a>
             </div>
         </nav>
 
@@ -40,22 +32,20 @@
         </p>
     </header>
 
-    <!-- Page Content Injection Target -->
     <main class="grid-container" th:replace="${content}">
         <!-- Unique page tables/views insert here -->
     </main>
 
-    <footer th:fragment="footer"
-        style="margin-top: 60px; font-size: 0.9em; color: #999; text-align: center; width: 100%;">
-        <p>&copy; 2026 Brain Dribbler. All rights reserved.</p>
-
-        <!-- Checks visibility flag from your custom gitProperties lifecycle logic -->
-        <p th:if="${showGitInfo}" style="font-size: 0.85em; color: #bbb; margin-top: 5px;">
-            Version: <span th:text="${gitBranch}">1.0.0</span> ( <span th:text="${gitHash}">efcb50f</span>)
+    <footer th:fragment="footer" class="bg-gray-800 text-gray-300 p-6 mt-8 text-center">
+        <p>&copy;<span th:text="${#dates.year(#dates.createNow())}">2025</span>
+            <span th:text="${siteName}">Brain Dribbling</span>. All rights reserved
         </p>
-        <p th:unless="${showGitInfo}" style="font-size: 0.85em; color: #bbb; margin-top: 5px;">
-            Version: Local Development Build
-        </p>
+        <div class="version-label" th:if="${showGitInfo}">
+            <small class="text-muted">
+                <span th:text="${gitBranch}">main</span>
+                (<span th:text="${gitHash}">abcd123</span>)
+            </small>
+        </div>
     </footer>
 
 </body>

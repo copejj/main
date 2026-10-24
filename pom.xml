@@ -97,7 +97,7 @@
 					<gitDescribe>
 						<tags>true</tags>
 					</gitDescribe>
-					<useBranchNameFromBuildEnvironment>false</useBranchNameFromBuildEnvironment>
+					<useBranchNameFromBuildEnvironment>true</useBranchNameFromBuildEnvironment>
 				</configuration>
 			</plugin>
 		</plugins>
