@@ -11,8 +11,8 @@
 	<groupId>com.braindribbler</groupId>
 	<artifactId>main</artifactId>
 	<packaging>war</packaging>
-	<name>Braindribbling Games</name>
-	<description>A basic game mobile friendly tool</description>
+	<name>Braindribbling Main</name>
+	<description>A launching point for Braindribbling websites</description>
 	<url/>
 	<licenses>
 		<license/>

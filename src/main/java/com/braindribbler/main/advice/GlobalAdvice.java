@@ -25,6 +25,7 @@ public class GlobalAdvice {
 
     @ModelAttribute
     public void addSiteInfo(Model model) {
+        model.addAttribute("siteName", "Brain Dribbler Home");
 
         if (gitProperties != null) {
             String tag = gitProperties.get("closest.tag.name");
@@ -35,6 +36,7 @@ public class GlobalAdvice {
 
             String displayVersion = "Unknown";
 
+            // 1. Separate environments cleanly at the top level
             if (currentEnv == EnvironmentConfig.DEV) {
                 // --- LOCAL DEV SUITE ROUTING ---
                 if (branch != null && !branch.isEmpty() && !branch.equals(fullHash)) {
@@ -60,5 +62,4 @@ public class GlobalAdvice {
             model.addAttribute("showGitInfo", false);
         }
     }
-
 }

@@ -21,7 +21,6 @@ public class MainApplication extends SpringBootServletInitializer {
         @Bean
         @ConditionalOnMissingBean(GitProperties.class)
         public GitProperties gitProperties() {
-            // Returns an empty properties block if target file doesn't exist yet locally
             return new GitProperties(new Properties());
         }
     }
