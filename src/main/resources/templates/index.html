@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" th:replace="~{fragments/layout :: mainLayout(~{::title}, ~{::main})}">
+
+<head>
+    <!-- Extracted safely by the layout parser to avoid runtime string expression collisions -->
+    <title>The Brain Dribbler - Home</title>
+</head>
+
+<body>
+
+    <main class="grid-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Platform</th>
+                    <th style="width: 70%;">Purpose & Features</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loops dynamically through the subdomains provided by your MVC model -->
+                <tr th:each="site : ${sites}">
+                    <td>
+                        <a class="site-link" th:href="${site.url}" th:text="${site.name}" target="_blank">Platform
+                            Name</a>
+                    </td>
+                    <td th:text="${site.description}">Platform Description text.</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+</body>
+
+</html>
