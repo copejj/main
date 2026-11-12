@@ -4,11 +4,20 @@ public class SiteLink {
     private String name;
     private String url;
     private String description;
+    private String gitHubUrl;
 
     public SiteLink(String name, String url, String description) {
         this.name = name;
         this.url = url;
         this.description = description;
+        this.gitHubUrl = ""; 
+    }
+
+    public SiteLink(String name, String url, String description, String gitHubUrl) {
+        this.name = name;
+        this.url = url;
+        this.description = description;
+        this.gitHubUrl = gitHubUrl; 
     }
 
     // Getters and Setters
@@ -34,5 +43,13 @@ public class SiteLink {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getGitHubUrl() {
+        return gitHubUrl;
+    }
+
+    public void setGitHubUrl(String gitHubUrl) {
+        this.gitHubUrl = gitHubUrl;
     }
 }

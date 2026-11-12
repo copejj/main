@@ -12,11 +12,17 @@ public class PortalService {
 
         public List<SiteLink> getSubdomains() {
                 return Arrays.asList(
-                                new SiteLink("Games", "https://games.braindribbler.com",
-                                                "Live scorekeeping tools for card games like Rummy and Spades."),
-                                new SiteLink("Recipes", "https://recipe.braindribbler.com",
-                                                "A friction-free kitchen companion for meal planning and smart pantry matching."),
-                                new SiteLink("Applied Jobs Log", "https://apply.braindribbler.com",
-                                                "A tailored tracking registry to manage corporate job submissions and application lifecycles."));
+                        new SiteLink("Games"
+                                , "https://games.braindribbler.com"
+                                , "Live scorekeeping tools for card games like Rummy and Spades."
+                                , "https://github.com/copejj/games"),
+                        new SiteLink("Recipes"
+                                , "https://recipe.braindribbler.com"
+                                , "A friction-free kitchen companion for meal planning and smart pantry matching."
+                                , "https://github.com/copejj/recipe"),
+                        new SiteLink("Applied Jobs Log"
+                                , "https://apply.braindribbler.com"
+                                , "A tailored tracking registry to manage corporate job submissions and application lifecycles."
+                                , "https://github.com/copejj/apply"));
         }
 }
